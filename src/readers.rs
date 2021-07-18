@@ -66,7 +66,7 @@ impl Lexer {
     // A method of Lexer that reads a string literal
     pub fn read_string(&mut self) -> Vec<char> {
         // Collect the start position of the identifier
-        let start = self.position;
+        let start = self.position + 1;
 
         // Iterate until a quote is encountered
         loop {
