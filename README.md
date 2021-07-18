@@ -1,5 +1,5 @@
 # rust-lexer
-### A simple token lexer, written in Rust
+### A simple tokenizer/lexer, written in Rust
 
 ### Usage
 Run the binary with cargo, to start the lexer's input loop
