@@ -34,6 +34,35 @@ impl Lexer {
     } 
 }
 
+impl Lexer {
+    // A method of Lexer that lexes the source input
+    pub fn lex(&mut self) -> Vec<Token> {
+        // Declare a vector of Tokens
+        let mut tokens: Vec<Token> = Vec::<Token>::new();
+        // Declare a accumulation Token variable
+        let mut newtoken: Token;
+
+        loop {
+            // Lex the current token
+            newtoken = self.next_token();
+
+            // Check if the token is an EOF token
+            if newtoken.tokentype == TokenType::EOF {
+                // Push the token into the vector
+                tokens.push(newtoken);
+                // Break the loop
+                break;
+            }
+
+            // Push the token into the vector
+            tokens.push(newtoken);
+        }
+
+        // Return the vector of Tokens
+        return tokens;
+    }
+}
+
 // Navigation methods of the Lexer
 impl Lexer {
     // A method of Lexer that reads and consumes all white 
