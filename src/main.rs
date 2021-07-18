@@ -6,6 +6,7 @@ mod readers;
 use std::io::{self, Write};
 
 fn main() {
+    print!("Welcome to the lexer. Input any series of characters.\n");
     loop {
         print!("lexer >: ");
         io::stdout().flush().unwrap();
