@@ -3,7 +3,7 @@
 use crate::token::TokenType;
 
 // A function that checks if a character is a letter.
-pub fn is_letter(ch: char) -> bool {
+pub fn is_alpha(ch: char) -> bool {
     'a' <= ch && ch <= 'z' || 'A' <= ch && ch <= 'Z' || ch == '_'
 }
 
