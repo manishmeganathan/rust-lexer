@@ -75,6 +75,19 @@ impl Lexer {
         }
     }
 
+    // A method of Lexer that reads the next character
+    // and returns it without changing the lexer state.
+    fn peek_char(&self) -> char {
+        // Check if the cursor has crossed the eof
+        if self.cursor >= self.source.len() {
+            // Return an EOF character
+            return '0';
+        } else {
+            // Return the next character
+            return self.source[self.cursor];
+        }
+    }
+
     // A method of Lexer that lexes the current char 
     // into a Token and advances the lex cursor
     fn next_token(&mut self) -> Token {
@@ -166,16 +179,35 @@ impl Lexer {
                 token = Token::new(TokenType::PIPE, "|".to_string());
             },
 
-
-            // EQ character
+            // = character
             '=' => {
-                // Generate an EQ Token
-                token = Token::new(TokenType::EQ, "=".to_string());
+                // Check if the next character is also an '='
+                if self.peek_char() == '=' {
+                    // Advance the cursor
+                    self.read_char();
+                    // Generate an EQ Token
+                    token = Token::new(TokenType::EQ, "==".to_string());
+                
+                // ASSIGN character
+                } else {
+                    // Generate an ASSIGN Token
+                    token = Token::new(TokenType::ASSIGN, "=".to_string());
+                }
             },
-            // BANG character
+            // ! character
             '!' => {
-                // Generate a BANG Token
-                token = Token::new(TokenType::BANG, "!".to_string());
+                // Check if the next character is an '='
+                if self.peek_char() == '=' {
+                    // Advance the cursor
+                    self.read_char();
+                    // Generate a NEQ Token
+                    token = Token::new(TokenType::NEQ, "!=".to_string());
+                
+                // ASSIGN character
+                } else {
+                    // Generate a BANG Token
+                    token = Token::new(TokenType::BANG, "!".to_string());
+                }
             },
 
             // String literals
