@@ -1,7 +1,7 @@
 // This module contains the Lexer struct and its implementations
 
 use crate::token::{Token, TokenType};
-use crate::utils::{is_alpha, is_digit, lookup_keyword};
+use crate::utils;
 
 // A structure that represents a Lexer
 pub struct Lexer {
@@ -94,14 +94,14 @@ impl Lexer {
             // Not a single character 
             _ => {
                 // Check if char is a letter
-                if is_alpha(self.ch) {
+                if utils::is_alpha(self.ch) {
                     // Read full identifier
                     let ident = self.read_identifier();
                     // Convert vector char into a string
                     let identstr = ident.clone().into_iter().collect();
 
                     // Check if the identifer is a keyword
-                    match lookup_keyword(&ident) {
+                    match utils::lookup_keyword(&ident) {
                         // Keyword
                         Ok(keyword_token) => {
                             // Generate the appropriate Keyword Token
@@ -116,7 +116,7 @@ impl Lexer {
                     }
 
                 // Check if char is a digit
-                } else if is_digit(self.ch) {
+                } else if utils::is_digit(self.ch) {
                     // Read full number
                     let number = self.read_number();
                     // Convert vector char into a string
