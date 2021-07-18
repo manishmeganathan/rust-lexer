@@ -37,3 +37,22 @@ pub enum TokenType {
     ALL
 }
 
+// A structure that represents a Token
+pub struct Token {
+    pub tokentype: TokenType,
+    literal: String,
+}
+
+// Constructor implementation for Token
+impl Token {
+    pub fn new(tokentype: TokenType, literal: String) -> Self {
+        Self {tokentype, literal}
+    }
+}
+
+// Display Trait implementation for Token
+impl std::fmt::Display for Token {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "({:?}, {})", self.tokentype, self.literal)
+    }
+}
