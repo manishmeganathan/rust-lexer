@@ -178,11 +178,13 @@ impl Lexer {
                 token = Token::new(TokenType::BANG, "!".to_string());
             },
 
-            // // String literals
-            // '"' => {
-            //     // Generate a String literal token
-            //     token = Token::new(TokenType::STRING, self.read_string());
-            // }
+            // String literals
+            '"' => {
+                // Read the string literal fully
+                let value = self.read_string();
+                // Generate a STRING token
+                token = Token::new(TokenType::STRING, value.iter().collect());
+            }
 
             // Not a single character 
             _ => {
