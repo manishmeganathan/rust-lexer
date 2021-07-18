@@ -90,6 +90,99 @@ impl Lexer {
                 // Generate an EOF Token
                 token = Token::new(TokenType::EOF, "".to_string());
             },
+            // PLUS character
+            '+' => {
+                // Generate a PLUS Token
+                token = Token::new(TokenType::PLUS, "+".to_string());
+            },
+            // MINUS character
+            '-' => {
+                // Generate a MINUS Token
+                token = Token::new(TokenType::MINUS, "-".to_string());
+            },
+            // ASTERISK character
+            '*' => {
+                // Generate an ASTERISK Token
+                token = Token::new(TokenType::ASTERISK, "*".to_string());
+            },
+            // SLASH character
+            '/' => {
+                // Generate a SLASH Token
+                token = Token::new(TokenType::SLASH, "/".to_string());
+            },
+            // RPAREN character
+            ')' => {
+                // Generate a RPAREN Token
+                token = Token::new(TokenType::RPAREN, ")".to_string());
+            },
+            // LPAREN character
+            '(' => {
+                // Generate an LPAREN Token
+                token = Token::new(TokenType::LPAREN, "(".to_string());
+            },
+            // RBRACE character
+            '}' => {
+                // Generate a RBRACE Token
+                token = Token::new(TokenType::RBRACE, "}".to_string());
+            },
+            // LBRACE character
+            '{' => {
+                // Generate an LBRACE Token
+                token = Token::new(TokenType::LBRACE, "{".to_string());
+            },
+            // COMMA character
+            ',' => {
+                // Generate a COMMA Token
+                token = Token::new(TokenType::COMMA, ",".to_string());
+            },
+            // COLON character
+            ':' => {
+                // Generate a COLON Token
+                token = Token::new(TokenType::COLON, ":".to_string());
+            },
+            // SEMICOLON character
+            ';' => {
+                // Generate a SEMICOLON Token
+                token = Token::new(TokenType::SEMICOLON, ";".to_string());
+            },
+            // LT character
+            '<' => {
+                // Generate a LT Token
+                token = Token::new(TokenType::LT, "<".to_string());
+            },
+            // GT character
+            '>' => {
+                // Generate a GT Token
+                token = Token::new(TokenType::GT, ">".to_string());
+            },
+            // TILDE character
+            '~' => {
+                // Generate a TILDE Token
+                token = Token::new(TokenType::TILDE, "~".to_string());
+            },
+            // PIPE character
+            '|' => {
+                // Generate a PIPE Token
+                token = Token::new(TokenType::PIPE, "|".to_string());
+            },
+
+
+            // EQ character
+            '=' => {
+                // Generate an EQ Token
+                token = Token::new(TokenType::EQ, "=".to_string());
+            },
+            // BANG character
+            '!' => {
+                // Generate a BANG Token
+                token = Token::new(TokenType::BANG, "!".to_string());
+            },
+
+            // // String literals
+            // '"' => {
+            //     // Generate a String literal token
+            //     token = Token::new(TokenType::STRING, self.read_string());
+            // }
 
             // Not a single character 
             _ => {
