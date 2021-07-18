@@ -17,9 +17,8 @@ pub fn lookup_keyword(data: &Vec<char>) -> Result<TokenType, String> {
     let content: String = data.into_iter().collect();
 
     match &content[..] {
-        "TRUE" => Ok(TokenType::TRUE),
-        "FALSE" => Ok(TokenType::FALSE),
-        "ALL" => Ok(TokenType::ALL),
+        "True" => Ok(TokenType::TRUE),
+        "False" => Ok(TokenType::FALSE),
         _ => Err(String::from("Not a keyword"))
     }
 }

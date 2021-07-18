@@ -33,8 +33,7 @@ pub enum TokenType {
     RBRACE,
 
     TRUE,
-    FALSE,
-    ALL
+    FALSE
 }
 
 // A structure that represents a Token
