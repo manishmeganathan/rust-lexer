@@ -43,11 +43,12 @@ impl Lexer {
         return ident.to_vec();
     }
 
+    // A method of Lexer that reads a numberic literal
     pub fn read_number(&mut self) -> Vec<char> {
         // Collect the start position of the identifier
         let start = self.position;
 
-        // Iterate until the char is not a letter
+        // Iterate until the char is not a digit
         loop {
             if is_digit(self.ch) {
                 self.read_char();
@@ -60,5 +61,24 @@ impl Lexer {
         let number = &self.source[start..self.position];
         // Convert the char slice into vector and return it
         return number.to_vec();
+    }
+
+    // A method of Lexer that reads a string literal
+    pub fn read_string(&mut self) -> Vec<char> {
+        // Collect the start position of the identifier
+        let start = self.position;
+
+        // Iterate until a quote is encountered
+        loop {
+            self.read_char();
+            if self.ch == '"' {
+                break;
+            }
+        }
+
+        // Create a slice of the source that contains the identifier
+        let string = &self.source[start..self.position];
+        // Convert the char slice into vector and return it
+        return string.to_vec();
     }
 }
